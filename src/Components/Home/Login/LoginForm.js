@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import InputForm from "../Form/InputForm";
+import InputForm from "../InputForm";
 function LoginForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const inputData = [
