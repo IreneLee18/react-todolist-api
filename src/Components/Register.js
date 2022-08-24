@@ -8,7 +8,7 @@ function Register() {
   const onSubmit = ({email,nickname,password}) => {
     const apiUrl = "https://todoo.5xcamp.us/users";
     const method = "POST";
-    // const headers = { "Content-type": "application/json; charset=UTF-8" };
+    const headers = { "Content-type": "application/json; charset=UTF-8" };
     const body = JSON.stringify({
       user: {
         email,
@@ -16,9 +16,10 @@ function Register() {
         password
       },
     });
-    console.log(body)
+    // console.log(body)
     fetch(apiUrl, {
       method,
+      headers,
       body,
     })
       .then((res) => res.json())
