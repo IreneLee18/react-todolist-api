@@ -76,26 +76,6 @@ function Register() {
         <main className="registerMain">
           <h1>最實用的線上代辦事項服務</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* <label htmlFor="email">
-              <span>Email</span>
-              <input type="text" id="email" placeholder="請輸入Email" />
-              <span>此欄位不可為空</span>
-            </label>
-            <label htmlFor="userName">
-              <span>您的暱稱</span>
-              <input type="text" id="userName" placeholder="請輸入您的暱稱" />
-              <span>此欄位不可為空</span>
-            </label>
-            <label htmlFor="password">
-              <span>密碼</span>
-              <input type="password" id="password" placeholder="請輸入密碼" />
-              <span>此欄位不可為空</span>
-            </label>
-            <label htmlFor="passwordAgain">
-              <span>再次輸入密碼</span>
-              <input type="password" id="passwordAgain" placeholder="請再次輸入密碼" />
-              <span>此欄位不可為空</span>
-            </label> */}
             {inputData.map((item) => (
               <label htmlFor={item.id} key={item.id}>
                 <span>{item.title}</span>
