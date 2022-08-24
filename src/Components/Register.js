@@ -106,8 +106,8 @@ function Register() {
                   {...register(`${item.id}`, {
                     required: `${item.requireErr}`,
                     [item.requiredName]: {
-                      value: `${item.requiredValue}`,
-                      message: `${item.requireMsg}`,
+                      value: item.requiredValue,
+                      message: item.requireMsg,
                     },
                   })}
                 />
