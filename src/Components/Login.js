@@ -1,6 +1,6 @@
 import "../style/_loginAndRegister.scss";
-import LoginSide from "./Login/LoginSide.js";
-import LoginForm from "./Login/LoginForm.js";
+import LoginSide from "./Home/HomeSide.js";
+import LoginForm from "./Home/Login/LoginForm.js";
 import { Link } from "react-router-dom";
 function Login() {
   return (
