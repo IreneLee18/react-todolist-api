@@ -5,23 +5,18 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 function Register() {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
-  const onSubmit = (data) => {
-    // console.log(data);
-    // 因為所有的data會取得到passwordAgain，但因為回傳到API上不需要passwordAgain
-    // 所以用 Object.entries 將物件轉成陣列，並刪除passwordAgain，之後再使用map將值賦予到userData(負責存放真正要傳到api上的資料)上，就可以取得到所需要的完整資料。
-    const userData = {};
-    Object.entries(data)
-      .splice(0, 3)
-      .map((item) => (userData[item[0]] = item[1]));
-    // console.log(userData);
+  const onSubmit = ({email,nickname,password}) => {
     const apiUrl = "https://todoo.5xcamp.us/users";
     const method = "POST";
     // const headers = { "Content-type": "application/json; charset=UTF-8" };
     const body = JSON.stringify({
       user: {
-        ...userData,
+        email,
+        nickname,
+        password
       },
     });
+    console.log(body)
     fetch(apiUrl, {
       method,
       body,
