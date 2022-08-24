@@ -3,9 +3,10 @@ import logo_lg from "../image/logo_lg.png";
 import done from "../image/done.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import InputForm from "./Form/InputForm";
 function Register() {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
-  const onSubmit = ({email,nickname,password}) => {
+  const onSubmit = ({ email, nickname, password }) => {
     const apiUrl = "https://todoo.5xcamp.us/users";
     const method = "POST";
     const headers = { "Content-type": "application/json; charset=UTF-8" };
@@ -13,7 +14,7 @@ function Register() {
       user: {
         email,
         nickname,
-        password
+        password,
       },
     });
     // console.log(body)
@@ -89,16 +90,7 @@ function Register() {
           <h1>最實用的線上代辦事項服務</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
             {inputData.map((item) => (
-              <label htmlFor={item.id} key={item.id}>
-                <span>{item.title}</span>
-                <input
-                  type={item.type}
-                  id={item.id}
-                  placeholder={item.placeholder}
-                  {...register(`${item.id}`, { ...item.validation })}
-                />
-                <span>{item.errors}</span>
-              </label>
+              <InputForm item={item} register={register} key={item.id} />
             ))}
             <label htmlFor="register-btn">
               <input

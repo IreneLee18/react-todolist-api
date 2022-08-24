@@ -1,10 +1,7 @@
 import { useForm } from "react-hook-form";
+import InputForm from "../Form/InputForm";
 function LoginForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const inputData = [
     {
       title: "Email",
@@ -38,16 +35,7 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {inputData.map((item) => (
-        <label htmlFor={item.id} key={item.id}>
-        <span>{item.title}</span>
-        <input
-          type={item.type}
-          id={item.id}
-          placeholder={item.placeholder}
-          {...register(`${item.id}`, { ...item.validation })}
-        />
-        <span>{item.errors}</span>
-      </label>
+        <InputForm item={item} register={register} key={item.id}/>
       ))}
       <label htmlFor="login-btn">
         <input type="submit" id="login-btn" className="btn" value=" " />
