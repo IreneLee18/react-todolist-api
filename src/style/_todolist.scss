@@ -38,6 +38,7 @@ header {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  font-weight: bold;
 
   @media (max-width:768px) {
     max-width: 600px;
@@ -49,6 +50,7 @@ header {
 
   ul {
     display: flex;
+    align-items: center;
 
     p {
       margin-right: 24px;

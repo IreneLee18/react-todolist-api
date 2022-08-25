@@ -1,17 +1,23 @@
+import { AuthContext } from "./Utils/Context";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Components/Login";
-import TodoList from "./Components/TodoList";
-import Register from "./Components/Register";
+import Login from "./Page/Login";
+import TodoList from "./Page/TodoList";
+import Register from "./Page/Register";
 
 function App() {
+  const [token, setToken] = useState(null);
+  const [userName, setUserName] = useState(null);
   return (
     <>
-    <Routes path="/">
-      <Route index element={<Login />}/>
-      <Route path="todolist" element={<TodoList />}/>
-      <Route path="register" element={<Register />}/>
-      <Route path="*" element={<Login />}/>
-    </Routes>  
+      <AuthContext.Provider value={{ token, setToken, userName, setUserName }}>
+        <Routes path="/">
+          <Route index element={<Login />} />
+          <Route path="todolist" element={<TodoList />} />
+          <Route path="register" element={<Register />} />
+          <Route path="*" element={<Login />} />
+        </Routes>
+      </AuthContext.Provider>
     </>
   );
 }
