@@ -1,5 +1,5 @@
-import logo_lg from "../../image/logo_lg.png";
-import done from "../../image/done.png";
+import logo_lg from "../../Image/logo_lg.png";
+import done from "../../Image/done.png";
 function LoginSide() {
   return (
     <div className="side">

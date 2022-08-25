@@ -1,6 +1,6 @@
-import "../style/_loginAndRegister.scss";
-import RegisterSide from "./Home/HomeSide.js";
-import RegisterForm from "./Home/Register/RegisterForm";
+import "../Style/_loginAndRegister.scss";
+import RegisterSide from "../Components/Home/HomeSide.js";
+import RegisterForm from "../Components/Home/Register/RegisterForm";
 import { Link } from "react-router-dom";
 function Register() {
   
