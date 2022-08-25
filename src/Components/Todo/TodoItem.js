@@ -7,13 +7,13 @@ function TodoItem({ currentTodoItem, done, clean }) {
             <input
               type="checkbox"
               id={item.id}
-              checked={item.isDone}
+              checked={item.completed_at ? true : false}
               onChange={done}
             />
-            <div className={item.isDone ? "check" : ""}></div>
-            <p className={item.isDone ? "done" : ""}>{item.todo}</p>
+            <div className={item.completed_at ? "check" : ""}></div>
+            <p className={item.completed_at ? "done" : ""}>{item.content}</p>
           </label>
-          <button id={item.id} onClick={clean}>
+          <button value={item.content} id={item.id} onClick={clean}>
             ✕
           </button>
         </li>

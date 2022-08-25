@@ -1,26 +1,46 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../Utils/Context";
+import { getAPI_register } from "../../../Utils/ApiFetch";
 import InputForm from "../InputForm";
+import { sweetAlert } from "../../../Utils/SweetAlert";
+
 function RegisterForm() {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const navigate = useNavigate();
+  const { setToken } = useAuth();
   const onSubmit = ({ email, nickname, password }) => {
-    const apiUrl = "https://todoo.5xcamp.us/users";
-    const method = "POST";
-    const headers = { "Content-type": "application/json; charset=UTF-8" };
-    const body = JSON.stringify({
+    const userData = JSON.stringify({
       user: {
         email,
         nickname,
         password,
       },
     });
-    // console.log(body)
-    fetch(apiUrl, {
-      method,
-      headers,
-      body,
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    getAPI_register(userData)
+      .then((res) => {
+        // console.log(res.headers.get('authorization'))
+        setToken(res.headers.get("authorization"));
+        return res.json();
+      })
+      .then((res) => {
+        if (res.hasOwnProperty("error")) {
+          sweetAlert(
+            `error`,
+            `不好意思，${res.message}！`,
+            `${res.error[0]}！請在嘗試一次！`
+          );
+        } else {
+          sweetAlert(
+            `success`,
+            `恭喜您${res.message}！`,
+            `Hi！${res.nickname}，即將幫您跳轉到登入畫面～`
+          );
+          window.setTimeout(() => {
+            navigate("/");
+          }, 3000);
+        }
+      });
   };
   const inputData = [
     {
@@ -74,11 +94,16 @@ function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {inputData.map((item) => (
-        <InputForm item={item} register={register} key={item.id}/>
+        <InputForm
+          item={item}
+          register={register}
+          key={item.id}
+          // errorsInput={errorsInput}
+        />
       ))}
-      <label htmlFor="login-btn">
-        <input type="submit" id="login-btn" className="btn" value=" " />
-        <span>登入</span>
+      <label htmlFor="register-btn">
+        <input type="submit" id="register-btn" className="btn" value=" " />
+        <span>註冊帳號</span>
       </label>
     </form>
   );
