@@ -1,4 +1,18 @@
-function Tab({ tab, currentTab, setCurrentTab }) {
+function Tab({currentTab, setCurrentTab }) {
+  const tab = [
+    {
+      id: "all",
+      type: "全部",
+    },
+    {
+      id: "undone",
+      type: "待完成",
+    },
+    {
+      id: "done",
+      type: "已完成",
+    },
+  ];
   return (
     <>
       {tab.map((item) => (
