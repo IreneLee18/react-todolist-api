@@ -1,7 +1,7 @@
 # React_TodoList_API
 [Page](https://irenelee18.github.io/react-todolist-api/)
 ## 證書內容
-1. [x]必做：需使用 React 框架來挑戰，並整合此任務提供的 API
+1. [x] 必做：需使用 React 框架來挑戰，並整合此任務提供的 API
 2. [x]必做：需使用 React Router，並統一部署到 GitHub Pages
 3. [x]必做：代辦為零筆資料時，需顯示文字「目前尚無代辦事項」
 4. [x]必做：新增代辦功能
