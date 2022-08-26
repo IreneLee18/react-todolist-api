@@ -45,7 +45,6 @@ function LoginForm() {
         return res.json();
       })
       .then((res) => {
-        console.log(res);
         if (res.message === "登入失敗") {
           sweetAlert(`error`, `不好意思，${res.message}！`, `請在嘗試一次！`);
         } else {
