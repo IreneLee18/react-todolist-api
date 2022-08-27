@@ -38,6 +38,7 @@ function TodoList() {
           window.setTimeout(() => {
             navigate("/");
           }, 3000);
+          return;
         }
         setTodoItem(res.todos);
       });
