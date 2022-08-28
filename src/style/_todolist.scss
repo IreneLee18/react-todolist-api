@@ -144,6 +144,12 @@ main {
       position: relative;
       margin-left: 24px;
 
+      &:hover {
+        button {
+          opacity: 1;
+        }
+      }
+
       label {
         display: flex;
         width: 428px;
@@ -200,18 +206,20 @@ main {
         margin-right: 17px;
 
         &:hover {
-          opacity: 1;
+          color: #D87355;
         }
       }
     }
-    .stillHave{
+
+    .stillHave {
       margin: 2rem 24px 2rem 2rem;
       font-size: 20px;
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
       animation: stillHaveTxt 4s infinite;
-      p{
+
+      p {
         margin: 0;
         font-weight: bold;
       }
