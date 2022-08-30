@@ -31,7 +31,7 @@ function LoginForm() {
       placeholder: "請輸入密碼",
       validation: {
         required: { value: true, message: "此欄位不可為空" },
-        minLength: { value: 8, message: "密碼長度至少8個唷！" },
+        minLength: { value: 6, message: "密碼長度至少6個唷！" },
       },
       errors: errors.password?.message,
     },
